@@ -1,0 +1,15 @@
+{
+  "name": "@konstant/theme-css",
+  "version": "0.0.0",
+  "description": "Theme for websites",
+  "type": "module",
+  "exports": {
+    "./theme": "./dist/theme.css"
+  },
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": "^18.20.2 || >=20.9.0"
+  }
+}
