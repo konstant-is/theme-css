@@ -3,32 +3,13 @@
   "version": "0.0.2",
   "description": "Theme for websites",
   "type": "module",
-  "scripts": {
-    "build": "pnpm ci:copyfiles && sass src/theme.scss dist/theme.css ",
-    "ci:clean": "rimraf {dist,*.tsbuildinfo}",
-    "ci:copyfiles": "copyfiles -u 1 \"src/**/*.{html,css,scss,ttf,woff,woff2,eot,svg,jpg,png,json}\" dist/",
-    "ci:tag": "node scripts/tag.js",
-    "ci:version": "node scripts/ci-version.js",
-    "ci:patch": "pnpm ci:version patch && pnpm ci:tag",
-    "lint": "eslint ./src",
-    "lint:fix": "eslint ./src --fix"
+  "exports": {
+    "./theme": "./dist/theme.css",
+    "./scss/theme": "./dist/theme.scss"
   },
-  "devDependencies": {
-    "@eslint/eslintrc": "^3.2.0",
-    "@types/node": "^20",
-    "copyfiles": "^2.4.1",
-    "cross-env": "^7.0.3",
-    "eslint": "^9",
-    "fs": "0.0.1-security",
-    "prettier": "^3",
-    "rimraf": "^6.0.1",
-    "sass": "^1.83.0",
-    "semver": "^7.6.3",
-    "sharp": "0.33.5",
-    "sort-package-json": "^2.10.0",
-    "typescript": "latest",
-    "url": "^0.11.4"
-  },
+  "files": [
+    "dist"
+  ],
   "engines": {
     "node": "^18.20.2 || >=20.9.0"
   }
