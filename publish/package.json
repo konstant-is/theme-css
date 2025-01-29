@@ -4,7 +4,8 @@
   "description": "Theme for websites",
   "type": "module",
   "exports": {
-    "./theme": "./dist/theme.css"
+    "./theme": "./dist/theme.css",
+    "./scss/theme": "./dist/theme.scss"
   },
   "files": [
     "dist"
