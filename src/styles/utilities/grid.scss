@@ -1,3 +1,5 @@
+@use '../mixins/breakpoints' as *;
+
 .grid {
   position: relative;
   display: grid;
@@ -7,22 +9,23 @@
   grid-column-gap: var(--grid-col-gap, var(--grid-gutter));
 }
 
+.col {
+  grid-column: 1 / -1;
+}
+
 @mixin generate-cols($max) {
   @for $i from 1 through $max {
     .cols-#{$i} {
-      grid-column-end: span #{$i};
+      grid-column: span #{$i} / span #{$i};
     }
-  }
-}
 
-@mixin generate-col-start($max) {
-  @for $i from 1 through $max {
-    .col-start-#{$i} {
-      grid-column-start: #{$i};
+    .cols-md-#{$i} {
+      @include gt-md {
+        grid-column: span #{$i} / span #{$i};
+      }
     }
   }
 }
 
 // Generate col-start classes for columns 1 to 16
-@include generate-cols(16);
-@include generate-col-start(16);
+@include generate-cols(var(--grid-cols, 16));
